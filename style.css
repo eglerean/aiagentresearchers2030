@@ -1,0 +1,24 @@
+/* Wide figure: give it more room. `wide-image` and `fit-image` show the figure whole (no cropping) */
+.slidev-layout.image-left.wide-image {
+  grid-template-columns: 1.35fr 1fr;
+}
+
+.slidev-layout.image-left.wide-image .asc-image,
+.slidev-layout.fit-image .asc-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-color: white;
+  padding: 0.75rem;
+}
+
+/* The theme trims the last child's bottom margin in cards; trim the first child's top margin too */
+.slidev-layout .card > :first-child {
+  margin-top: 0;
+}
+
+/* fit-image: no box around the figure, just a tiny margin */
+.slidev-layout.fit-image .asc-image {
+  background-color: transparent;
+  padding: 0.25rem;
+}

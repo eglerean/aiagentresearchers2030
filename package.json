@@ -1,0 +1,13 @@
+{
+  "name": "aiagentresearchers2030",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "~0.47.5"
+  }
+}

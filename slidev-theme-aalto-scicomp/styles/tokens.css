@@ -1,0 +1,89 @@
+/* Aalto Scientific Computing theme — design tokens */
+
+:root {
+  /* Warm neutrals */
+  --asc-ivory: #F0EEE6;
+  --asc-paper: #FAF9F5;
+  --asc-sand: #E3DACC;
+  --asc-oat: #E8E6DC;
+  --asc-ink: #141413;
+  --asc-night: #1F1E1D;
+  --asc-night-raised: #2A2927;
+
+  /* Single accent */
+  --asc-clay: #CC785C;
+  --asc-clay-deep: #B5603F;
+
+  /* Shape */
+  --asc-radius-lg: 1.25rem;
+  --asc-radius-md: 0.75rem;
+  --asc-radius-sm: 0.5rem;
+
+  /* Type */
+  --asc-font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --asc-font-serif: 'Besley', ui-serif, Georgia, serif;
+  --asc-font-mono: 'Fira Code', ui-monospace, monospace;
+
+  --slidev-theme-primary: var(--asc-clay);
+}
+
+/*
+ * Slide variants. Each sets the semantic variables that layouts.css and
+ * the components read; nothing else needs to know which variant is active.
+ */
+.asc-ivory,
+.asc-white,
+.asc-sand,
+.asc-clay {
+  --asc-bg: var(--asc-ivory);
+  --asc-surface: var(--asc-paper);
+  --asc-sunken: var(--asc-oat);
+  --asc-border: #D9D6CC;
+  --asc-text: var(--asc-ink);
+  --asc-muted: #5E5D59;
+  --asc-link: var(--asc-clay-deep);
+  --asc-eyebrow: var(--asc-clay-deep);
+  --asc-hex-stroke: rgba(20, 20, 19, 0.16);
+}
+
+.asc-white {
+  --asc-bg: #FFFFFF;
+  --asc-surface: var(--asc-ivory);
+  --asc-sunken: var(--asc-oat);
+}
+
+.asc-sand {
+  --asc-bg: var(--asc-sand);
+  --asc-surface: var(--asc-paper);
+  --asc-sunken: #D8CEBE;
+  --asc-border: #CFC5B4;
+  --asc-hex-stroke: rgba(20, 20, 19, 0.2);
+}
+
+.asc-clay {
+  --asc-bg: var(--asc-clay);
+  --asc-surface: #E3A48D;
+  --asc-sunken: #D58C71;
+  --asc-border: rgba(20, 20, 19, 0.2);
+  --asc-muted: #3D2A22;
+  --asc-link: var(--asc-ink);
+  --asc-eyebrow: var(--asc-ink);
+  --asc-hex-stroke: rgba(20, 20, 19, 0.25);
+}
+
+.asc-dark {
+  --asc-bg: var(--asc-night);
+  --asc-surface: var(--asc-night-raised);
+  --asc-sunken: #262523;
+  --asc-border: #3D3C38;
+  --asc-text: var(--asc-paper);
+  --asc-muted: #A8A59C;
+  --asc-link: #E09A80;
+  --asc-eyebrow: #E09A80;
+  --asc-hex-stroke: rgba(250, 249, 245, 0.14);
+}
+
+/* In the clay variant the accent cells must still stand out */
+.asc-clay .asc-honeycomb {
+  --asc-clay: var(--asc-ink);
+}

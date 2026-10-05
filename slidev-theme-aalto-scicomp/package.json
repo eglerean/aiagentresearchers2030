@@ -1,0 +1,39 @@
+{
+  "name": "slidev-theme-aalto-scicomp",
+  "version": "0.1.0",
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=0.47.0"
+  },
+  "scripts": {
+    "dev": "slidev example.md --open",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "fonts": {
+        "sans": "Inter",
+        "serif": "Besley",
+        "mono": "Fira Code",
+        "weights": "400,500,600,700",
+        "italic": true
+      }
+    }
+  },
+  "dependencies": {
+    "@slidev/types": "^0.47.0",
+    "codemirror-theme-vars": "^0.1.2",
+    "prism-theme-vars": "^0.2.4"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.47.0"
+  }
+}

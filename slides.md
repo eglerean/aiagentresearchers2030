@@ -75,6 +75,7 @@ I coordinate **LUMI AI Factory** trainings at Aalto University.
 layout: section
 color: dark
 hexText: "AI?"
+class: title-middle
 ---
 
 # What is AI?

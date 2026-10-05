@@ -22,3 +22,9 @@
   background-color: transparent;
   padding: 0.25rem;
 }
+
+/* Section slide with the title in the vertical middle instead of at the bottom */
+.slidev-layout.section.title-middle .section-content {
+  justify-content: center;
+  padding-bottom: 3rem;
+}

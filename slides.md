@@ -6,6 +6,7 @@ themeConfig:
     url: https://eglerean.github.io/
 title: Rethinking research computing and data infrastructures for non-human users
 layout: cover
+class: no-footer
 hexText: "AI\nAGENTS"
 hexSeed: 7
 ---
@@ -17,11 +18,17 @@ hexSeed: 7
 AI agents as the new users of HPC and research data services. A researcher and research-support perspective.
 
 ::presenter::
-Enrico Glerean · 7 October 2026
+**Enrico Glerean**, Staff Scientist, Aalto University · 7 October 2026
+
+<div class="license-line"><CcBy /> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="https://github.com/eglerean/aiagentresearchers2030" class="gh-link" title="Slides on GitHub" aria-label="Slides on GitHub"><carbon-logo-github class="gh-icon" /></a></div>
 
 <style>
 h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
 p { font-size: 0.95rem; }
+.cover-presenter p { font-size: 0.85rem; }
+.license-line { margin-top: 0.45rem; font-size: 0.75rem; white-space: nowrap; }
+.gh-icon { vertical-align: -0.2em; width: 1.15em; height: 1.15em; }
+.license-line a.gh-link { border-bottom: none; text-decoration: none; color: inherit; }
 </style>
 
 <!--

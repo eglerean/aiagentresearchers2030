@@ -28,3 +28,8 @@
   justify-content: center;
   padding-bottom: 3rem;
 }
+
+/* Hide the footer on a slide (e.g. the title slide) */
+.slidev-layout.no-footer .asc-footer {
+  display: none;
+}

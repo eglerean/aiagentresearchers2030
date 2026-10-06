@@ -36,6 +36,16 @@ npm run export
 
 This writes `slides-export.pdf`.
 
+## Link preview image
+
+The `<head>` of `index.html` holds the title, description and image that social media show when the link is shared. Slidev merges it into the built page. The image, `public/og-image.png`, is a screenshot of slide 1. Regenerate it after changing slide 1:
+
+```bash
+npm i --no-save playwright-chromium
+npx slidev export --format png --range 1 --scale 1.25 --output og-tmp
+mv og-tmp/001.png public/og-image.png && rm -r og-tmp
+```
+
 ## Publish on GitHub Pages
 
 `.github/workflows/deploy.yml` builds the slides and publishes them on every push to `main`. Turn it on once, in the repo on GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.

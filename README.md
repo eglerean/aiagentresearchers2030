@@ -30,11 +30,56 @@ This opens http://localhost:3030 in your browser. The page reloads whenever you 
 The fonts load from Google Fonts, so for a talk without internet, export a PDF beforehand:
 
 ```bash
-npm i -D playwright-chromium
+npm i --no-save playwright-chromium
 npm run export
 ```
 
 This writes `slides-export.pdf`.
+
+## Colour palettes
+
+The default look is the Aalto Scientific Computing theme (warm ivory and dark backgrounds, clay accent), plus the tweaks in `style.css`.
+
+There are also two optional palettes. They only change colours; fonts, layouts and shapes stay the same.
+
+| Palette | `VITE_PALETTE` | Dev script | File | Look |
+| --- | --- | --- | --- | --- |
+| Classic Aalto | `aalto-classic` | `npm run dev:classic` | `styles/aalto-classic.css` | White and black backgrounds, Aalto blue, red and yellow accents |
+| scicomp.aalto.fi | `scicomp-web` | `npm run dev:scicomp-web` | `styles/scicomp-web.css` | The greys of [scicomp.aalto.fi](https://scicomp.aalto.fi/) (near-white pages, charcoal `#343131` dark slides) with its blue `#277CB4` |
+
+`styles/index.ts` loads a palette only when the environment variable `VITE_PALETTE` names it. Slidev loads `styles/index.ts` automatically.
+
+### Try one
+
+```bash
+npm run dev:classic                         # dev server, classic Aalto
+npm run dev:scicomp-web                     # dev server, scicomp.aalto.fi greys
+VITE_PALETTE=scicomp-web npm run export     # PDF with a palette
+VITE_PALETTE=scicomp-web npm run build      # static site with a palette
+```
+
+### Make one the default
+
+Replace the contents of `styles/index.ts` with a plain import of the palette you want, for example:
+
+```ts
+import './scicomp-web.css'
+```
+
+Then `npm run dev`, `npm run export` and the GitHub Pages deploy all use that palette, with no environment variable and no change to the workflow. The `dev:classic` and `dev:scicomp-web` scripts in `package.json` are then no longer needed. Also regenerate the link preview image (see below) so it shows the new colours.
+
+To go back, restore the conditional version of `styles/index.ts`:
+
+```ts
+const palette = import.meta.env.VITE_PALETTE
+
+if (palette === 'aalto-classic')
+  import('./aalto-classic.css')
+else if (palette === 'scicomp-web')
+  import('./scicomp-web.css')
+```
+
+To remove the optional palettes completely, delete the `styles/` folder and the `dev:classic` and `dev:scicomp-web` scripts.
 
 ## Link preview image
 

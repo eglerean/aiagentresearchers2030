@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "slidev --open",
     "build": "slidev build",
-    "export": "slidev export"
+    "export": "slidev export",
+    "dev:classic": "VITE_PALETTE=aalto-classic slidev --open",
+    "dev:scicomp-web": "VITE_PALETTE=scicomp-web slidev --open"
   },
   "dependencies": {
     "@slidev/cli": "~0.47.5"

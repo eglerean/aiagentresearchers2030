@@ -1,0 +1,99 @@
+/*
+ * Test palette: the greys and blue of https://scicomp.aalto.fi/
+ * (sphinx_rtd_theme greys + the site's colour-contrast overrides).
+ * Only loaded when VITE_PALETTE=scicomp-web.
+ * It overrides the theme's colour tokens; layouts, fonts and shapes are unchanged.
+ */
+
+:root {
+  --scw-page: #FCFCFC;       /* content background */
+  --scw-light: #F3F6F6;      /* light grey panels */
+  --scw-grey: #EDF0F2;       /* outer page grey */
+  --scw-border: #E1E4E5;     /* borders and rules */
+  --scw-charcoal: #343131;   /* sidebar */
+  --scw-charcoal-2: #4E4A4A; /* sidebar hover */
+  --scw-side-text: #D9D9D9;  /* sidebar text */
+  --scw-text: #242424;       /* body text */
+  --scw-muted: #737373;      /* footer text */
+  --scw-blue: #277CB4;       /* sidebar header, admonitions */
+  --scw-link: #2573A7;       /* links */
+
+  --asc-ivory: var(--scw-page);
+  --asc-paper: #FFFFFF;
+  --asc-sand: var(--scw-grey);
+  --asc-oat: var(--scw-light);
+  --asc-ink: var(--scw-text);
+  --asc-night: var(--scw-charcoal);
+  --asc-night-raised: var(--scw-charcoal-2);
+
+  --asc-clay: var(--scw-blue);
+  --asc-clay-deep: var(--scw-link);
+
+  --slidev-theme-primary: var(--scw-blue);
+}
+
+/* Light slides: near-white background, white cards, grey borders */
+.asc-ivory,
+.asc-white,
+.asc-sand,
+.asc-clay {
+  --asc-bg: var(--scw-page);
+  --asc-surface: #FFFFFF;
+  --asc-sunken: var(--scw-light);
+  --asc-border: var(--scw-border);
+  --asc-text: var(--scw-text);
+  --asc-muted: var(--scw-muted);
+  --asc-link: var(--scw-link);
+  --asc-eyebrow: var(--scw-link);
+  --asc-hex-stroke: rgba(36, 36, 36, 0.12);
+}
+
+.asc-white {
+  --asc-bg: #FFFFFF;
+  --asc-surface: var(--scw-page);
+}
+
+/* `color: sand` becomes the outer page grey */
+.asc-sand {
+  --asc-bg: var(--scw-grey);
+  --asc-border: #D5DADC;
+  --asc-hex-stroke: rgba(36, 36, 36, 0.16);
+}
+
+/* `color: clay` becomes the scicomp blue */
+.asc-clay {
+  --asc-bg: var(--scw-blue);
+  --asc-surface: #4A93C4;
+  --asc-sunken: #1F6A9C;
+  --asc-border: rgba(255, 255, 255, 0.25);
+  --asc-text: #FFFFFF;
+  --asc-muted: #E6EEF4;
+  --asc-link: #FFFFFF;
+  --asc-eyebrow: #FFFFFF;
+  --asc-hex-stroke: rgba(255, 255, 255, 0.25);
+}
+
+/* Dark slides: the charcoal sidebar */
+.asc-dark {
+  --asc-bg: var(--scw-charcoal);
+  --asc-surface: var(--scw-charcoal-2);
+  --asc-sunken: #2B2828;
+  --asc-border: #5A5555;
+  --asc-text: #FFFFFF;
+  --asc-muted: var(--scw-side-text);
+  --asc-link: #6FB3E0;
+  --asc-eyebrow: #6FB3E0;
+  --asc-hex-stroke: rgba(255, 255, 255, 0.12);
+}
+
+/* Highlight boxes (`card clay`): blue with white text, like the site's note titles */
+.slidev-layout .card.clay {
+  background: var(--scw-blue);
+  border-color: var(--scw-blue);
+  color: #FFFFFF;
+}
+
+/* The agent diagram's model box sits on the blue, so its text goes white too */
+.slidev-layout .ad-model {
+  color: #FFFFFF !important;
+}

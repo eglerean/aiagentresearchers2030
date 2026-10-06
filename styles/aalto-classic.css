@@ -1,0 +1,96 @@
+/*
+ * Test palette: classic Aalto colours (white/black backgrounds,
+ * Aalto blue, red and yellow accents). Only loaded when VITE_PALETTE=aalto-classic.
+ * It overrides the theme's colour tokens; layouts, fonts and shapes are unchanged.
+ * Colours from ../aaltoslidev/slidev-theme-aalto/styles/aalto-colors.css
+ */
+
+:root {
+  --aalto-blue: #46A5FF;
+  --aalto-red: #FD6360;
+  --aalto-yellow: #F7E159;
+
+  /* Neutrals become plain white, light grey and black */
+  --asc-ivory: #FFFFFF;
+  --asc-paper: #FFFFFF;
+  --asc-sand: var(--aalto-yellow);
+  --asc-oat: #F2F2F2;
+  --asc-ink: #000000;
+  --asc-night: #000000;
+  --asc-night-raised: #1A1A1A;
+
+  /* Main accent: Aalto blue. A darker blue for small text on white */
+  --asc-clay: var(--aalto-blue);
+  --asc-clay-deep: #1A73D9;
+
+  --slidev-theme-primary: var(--aalto-blue);
+}
+
+/* Light slides: white background, red eyebrows, blue links */
+.asc-ivory,
+.asc-white,
+.asc-sand,
+.asc-clay {
+  --asc-bg: #FFFFFF;
+  --asc-surface: #FFFFFF;
+  --asc-sunken: #F2F2F2;
+  --asc-border: #D0D0D0;
+  --asc-text: #000000;
+  --asc-muted: #5A5A5A;
+  --asc-link: #1A73D9;
+  --asc-eyebrow: #E8413E;
+  --asc-hex-stroke: rgba(0, 0, 0, 0.14);
+}
+
+/* `color: sand` becomes Aalto yellow, with white cards on it */
+.asc-sand {
+  --asc-bg: var(--aalto-yellow);
+  --asc-surface: #FFFFFF;
+  --asc-border: rgba(0, 0, 0, 0.15);
+  --asc-muted: #3A3A3A;
+  --asc-eyebrow: #000000;
+  --asc-link: #000000;
+  --asc-hex-stroke: rgba(0, 0, 0, 0.2);
+}
+
+/* `color: clay` becomes Aalto blue */
+.asc-clay {
+  --asc-bg: var(--aalto-blue);
+  --asc-surface: #8CC6FF;
+  --asc-sunken: #6BB6FF;
+  --asc-border: rgba(0, 0, 0, 0.2);
+  --asc-muted: #1A1A1A;
+  --asc-link: #000000;
+  --asc-eyebrow: #000000;
+  --asc-hex-stroke: rgba(0, 0, 0, 0.25);
+}
+
+/* Dark slides: black background, yellow eyebrows, blue links */
+.asc-dark {
+  --asc-bg: #000000;
+  --asc-surface: #1A1A1A;
+  --asc-sunken: #111111;
+  --asc-border: #333333;
+  --asc-text: #FFFFFF;
+  --asc-muted: #B4B4B4;
+  --asc-link: var(--aalto-blue);
+  --asc-eyebrow: var(--aalto-yellow);
+  --asc-hex-stroke: rgba(255, 255, 255, 0.16);
+}
+
+/* Honeycomb: blue outlined accents, yellow filled accents */
+.slidev-layout .hex-accent-fill {
+  fill: var(--aalto-yellow) !important;
+  opacity: 1 !important;
+}
+
+/* Highlight boxes (`card clay`) in Aalto blue; quotes get a red rule */
+.slidev-layout .card.clay {
+  background: var(--aalto-blue);
+  border-color: var(--aalto-blue);
+  color: #000000;
+}
+
+.slidev-layout blockquote {
+  border-left-color: var(--aalto-red) !important;
+}

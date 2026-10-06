@@ -38,16 +38,14 @@ This writes `slides-export.pdf`.
 
 ## Colour palettes
 
-The default look is the Aalto Scientific Computing theme (warm ivory and dark backgrounds, clay accent), plus the tweaks in `style.css`.
+The default look is the Aalto Scientific Computing theme (warm ivory and dark backgrounds, clay accent). The theme also has two optional palettes that change only the colours; fonts, layouts and shapes stay the same:
 
-There are also two optional palettes. They only change colours; fonts, layouts and shapes stay the same.
+| Palette | Look |
+| --- | --- |
+| `aalto-classic` | White and black backgrounds, Aalto blue, red and yellow accents |
+| `scicomp-web` | The greys of [scicomp.aalto.fi](https://scicomp.aalto.fi/) (near-white slides, charcoal `#343131` dark slides) with its blue `#277CB4` |
 
-| Palette | `VITE_PALETTE` | Dev script | File | Look |
-| --- | --- | --- | --- | --- |
-| Classic Aalto | `aalto-classic` | `npm run dev:classic` | `styles/aalto-classic.css` | White and black backgrounds, Aalto blue, red and yellow accents |
-| scicomp.aalto.fi | `scicomp-web` | `npm run dev:scicomp-web` | `styles/scicomp-web.css` | The greys of [scicomp.aalto.fi](https://scicomp.aalto.fi/) (near-white pages, charcoal `#343131` dark slides) with its blue `#277CB4` |
-
-`styles/index.ts` loads a palette only when the environment variable `VITE_PALETTE` names it. Slidev loads `styles/index.ts` automatically.
+The palettes live in the theme (`slidev-theme-aalto-scicomp/styles/palettes.css`); see the theme's README.
 
 ### Try one
 
@@ -55,31 +53,33 @@ There are also two optional palettes. They only change colours; fonts, layouts a
 npm run dev:classic                         # dev server, classic Aalto
 npm run dev:scicomp-web                     # dev server, scicomp.aalto.fi greys
 VITE_PALETTE=scicomp-web npm run export     # PDF with a palette
-VITE_PALETTE=scicomp-web npm run build      # static site with a palette
 ```
+
+This quick switch comes from `styles/index.ts` in this repo, which applies the palette named in `VITE_PALETTE`.
 
 ### Make one the default
 
-Replace the contents of `styles/index.ts` with a plain import of the palette you want, for example:
+Add `palette` to `themeConfig` in the `slides.md` headmatter:
 
-```ts
-import './scicomp-web.css'
+```yaml
+themeConfig:
+  palette: scicomp-web
+  credit:
+    ...
 ```
 
-Then `npm run dev`, `npm run export` and the GitHub Pages deploy all use that palette, with no environment variable and no change to the workflow. The `dev:classic` and `dev:scicomp-web` scripts in `package.json` are then no longer needed. Also regenerate the link preview image (see below) so it shows the new colours.
+Then `npm run dev`, `npm run export` and the GitHub Pages deploy all use it, with no environment variable and no change to the workflow. Also regenerate the link preview image (see below) so it shows the new colours. To go back, remove the `palette` line.
 
-To go back, restore the conditional version of `styles/index.ts`:
+## Theme copy
 
-```ts
-const palette = import.meta.env.VITE_PALETTE
+`slidev-theme-aalto-scicomp/` is a copy of `../aaltoslidev/slidev-theme-aalto-scicomp`. Make theme changes in the original, then update the copy:
 
-if (palette === 'aalto-classic')
-  import('./aalto-classic.css')
-else if (palette === 'scicomp-web')
-  import('./scicomp-web.css')
+```bash
+rsync -a --exclude node_modules --exclude package-lock.json --exclude dist \
+  ../aaltoslidev/slidev-theme-aalto-scicomp ./
 ```
 
-To remove the optional palettes completely, delete the `styles/` folder and the `dev:classic` and `dev:scicomp-web` scripts.
+Deck-specific tweaks live in `style.css` in this repo, so they survive the update.
 
 ## Link preview image
 

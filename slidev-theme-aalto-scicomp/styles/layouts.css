@@ -216,6 +216,10 @@
   border-radius: var(--asc-radius-lg);
   padding: 1.25rem 1.5rem;
 
+  > :first-child {
+    margin-top: 0;
+  }
+
   > :last-child {
     margin-bottom: 0;
   }
@@ -635,4 +639,35 @@
  */
 #slidev-goto-dialog:has(#slidev-goto-input:placeholder-shown) .autocomplete-list {
   display: none;
+}
+
+/* ---------- Optional slide classes (use `class:` in the slide frontmatter) ---------- */
+
+/* `no-footer`: hide the footer, e.g. on the title slide */
+.slidev-layout.no-footer .asc-footer {
+  display: none;
+}
+
+/* `title-middle`: section slide with the title in the vertical middle */
+.slidev-layout.section.title-middle .section-content {
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+/* `fit-image`: show the whole image (no cropping) in image-left/right and cover-picture */
+.slidev-layout.fit-image .asc-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-color: transparent;
+  padding: 0.25rem;
+}
+
+/* `wide-image`: give the image more room than the text in image-left/right */
+.slidev-layout.image-left.wide-image {
+  grid-template-columns: 1.35fr 1fr;
+}
+
+.slidev-layout.image-right.wide-image {
+  grid-template-columns: 1fr 1.35fr;
 }

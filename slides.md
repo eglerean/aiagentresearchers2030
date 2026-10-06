@@ -172,7 +172,7 @@ CUT THIS SLIDE FIRST IF SHORT ON TIME.
 ---
 layout: image-left
 image: /scenarios_summary.png
-class: wide-image
+class: wide-image fit-image
 ---
 
 ###### Software coding as we knew it is dead

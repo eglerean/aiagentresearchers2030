@@ -227,11 +227,65 @@ Use `color:` on any layout:
 
 Color names from the old theme are mapped: `black` and `gray-dark` become `dark`, `gray` becomes `sand`, and `blue`, `red` and `yellow` become `clay`.
 
+## Palettes
+
+The default colours are the warm ivory, dark gray and clay described above. Two optional palettes change only the colours (layouts, fonts and shapes stay the same). Choose one in the deck headmatter:
+
+```yaml
+---
+theme: ./slidev-theme-aalto-scicomp
+themeConfig:
+  palette: scicomp-web
+---
+```
+
+| `palette` | Look |
+| --- | --- |
+| *(not set)* | Default: ivory and very dark warm gray, clay accent |
+| `aalto-classic` | White and black backgrounds with Aalto blue, red and yellow accents (colours from `slidev-theme-aalto`). `color: sand` becomes Aalto yellow and `color: clay` becomes Aalto blue |
+| `scicomp-web` | The grays and blue of [scicomp.aalto.fi](https://scicomp.aalto.fi/): near-white `#FCFCFC` slides, charcoal `#343131` dark slides and the site's blue `#277CB4` |
+
+`setup/main.ts` adds the class `asc-palette-<name>` to `<html>`, and `styles/palettes.css` overrides the color tokens under that class.
+
 ## Markdown helpers
 
 - `###### Label` is an eyebrow: a small uppercase clay label to put above a title.
-- `<div class="card">…</div>` is a rounded box. Add `dark` or `clay` for the other variants (`class="card dark"`). Wrap several cards in `<div class="card-grid">` to place them side by side. Leave blank lines around markdown inside the divs.
+- `<div class="card">…</div>` is a rounded box. Add `dark` or `clay` for the other variants (`class="card dark"`). Wrap several cards in `<div class="card-grid">` to place them side by side. Leave blank lines around markdown inside the divs. The first and last lines inside a card have no outer margin, so the padding is even on all sides.
 - Blockquotes, tables and code blocks are styled as rounded cards automatically.
+
+## Slide classes
+
+Add these with `class:` in a slide's frontmatter. Several can be combined with spaces (`class: wide-image fit-image`).
+
+| Class | Works on | Effect |
+| --- | --- | --- |
+| `no-footer` | any layout | Hides the footer, e.g. on the title slide |
+| `title-middle` | `section` | Puts the title in the vertical middle instead of at the bottom |
+| `fit-image` | `image-left`, `image-right`, `cover-picture` | Shows the whole image (no cropping), on the slide background with a small margin |
+| `wide-image` | `image-left`, `image-right` | Gives the image more room than the text |
+
+Tip: if a figure has a wide transparent margin built in, trim it so `fit-image` can show the figure larger.
+
+## Footer credit
+
+To show a credit or licence line in the footer, next to the date, set it in the deck headmatter:
+
+```yaml
+themeConfig:
+  credit:
+    text: Your Name · CC BY 4.0
+    url: https://example.org/
+```
+
+The `url` is optional; it is shown without `https://` and is clickable.
+
+## `<CcBy>` component
+
+The official Creative Commons "CC BY" icons, inline at the size of the surrounding text:
+
+```md
+<CcBy /> [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+```
 
 ## `<Honeycomb>` component
 

@@ -1,35 +1,13 @@
-/* Wide figure: give it more room. `wide-image` and `fit-image` show the figure whole (no cropping) */
-.slidev-layout.image-left.wide-image {
-  grid-template-columns: 1.35fr 1fr;
-}
+/* Deck-specific tweaks. General features (no-footer, title-middle, fit-image,
+   wide-image, palettes, footer credit, <CcBy>) come from the theme. */
 
-.slidev-layout.image-left.wide-image .asc-image,
-.slidev-layout.fit-image .asc-image {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: content-box;
+/* Slide 6: the CodeRefinery figure has an opaque white background, so give it a white box */
+.slidev-layout.wide-image.fit-image .asc-image {
   background-color: white;
   padding: 0.75rem;
 }
 
-/* The theme trims the last child's bottom margin in cards; trim the first child's top margin too */
-.slidev-layout .card > :first-child {
-  margin-top: 0;
-}
-
-/* fit-image: no box around the figure, just a tiny margin */
-.slidev-layout.fit-image .asc-image {
-  background-color: transparent;
-  padding: 0.25rem;
-}
-
-/* Section slide with the title in the vertical middle instead of at the bottom */
-.slidev-layout.section.title-middle .section-content {
-  justify-content: center;
-  padding-bottom: 3rem;
-}
-
-/* Hide the footer on a slide (e.g. the title slide) */
-.slidev-layout.no-footer .asc-footer {
-  display: none;
+/* scicomp-web palette: the agent diagram's model box is blue, so its text goes white */
+html.asc-palette-scicomp-web .slidev-layout .ad-model {
+  color: #FFFFFF !important;
 }

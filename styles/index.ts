@@ -1,9 +1,9 @@
-// Optional alternative palettes, off by default.
-// Try them with: npm run dev:classic  or  npm run dev:scicomp-web
-// (these set VITE_PALETTE=aalto-classic or VITE_PALETTE=scicomp-web)
+// Quick palette switch for testing, without editing the headmatter:
+//   npm run dev:classic       (VITE_PALETTE=aalto-classic)
+//   npm run dev:scicomp-web   (VITE_PALETTE=scicomp-web)
+// The palettes themselves live in the theme (styles/palettes.css). To make one
+// the default, set `themeConfig: palette: <name>` in the slides.md headmatter.
 const palette = import.meta.env.VITE_PALETTE
 
-if (palette === 'aalto-classic')
-  import('./aalto-classic.css')
-else if (palette === 'scicomp-web')
-  import('./scicomp-web.css')
+if (palette && typeof document !== 'undefined')
+  document.documentElement.classList.add(`asc-palette-${palette}`)

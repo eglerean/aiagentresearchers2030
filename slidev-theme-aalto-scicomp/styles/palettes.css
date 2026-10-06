@@ -85,9 +85,9 @@ html.asc-palette-aalto-classic .asc-dark {
   --asc-hex-stroke: rgba(255, 255, 255, 0.16);
 }
 
-/* Honeycomb: blue outlined accents, yellow filled accents */
+/* Honeycomb: blue outlined and filled accents */
 html.asc-palette-aalto-classic .slidev-layout .hex-accent-fill {
-  fill: var(--aalto-yellow) !important;
+  fill: var(--aalto-blue) !important;
   opacity: 1 !important;
 }
 

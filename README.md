@@ -38,7 +38,7 @@ This writes `slides-export.pdf`.
 
 ## Colour palettes
 
-The default look is the Aalto Scientific Computing theme (warm ivory and dark backgrounds, clay accent). The theme also has two optional palettes that change only the colours; fonts, layouts and shapes stay the same:
+This deck uses the **`aalto-classic`** palette (set with `palette: aalto-classic` in the `slides.md` headmatter). Without it, the theme's own look is warm ivory and dark backgrounds with a clay accent. The theme has two optional palettes that change only the colours; fonts, layouts and shapes stay the same:
 
 | Palette | Look |
 | --- | --- |

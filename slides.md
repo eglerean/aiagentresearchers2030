@@ -1,6 +1,7 @@
 ---
 theme: ./slidev-theme-aalto-scicomp
 themeConfig:
+  palette: aalto-classic
   credit:
     text: Enrico Glerean · CC BY 4.0
     url: https://eglerean.github.io/
@@ -15,7 +16,7 @@ hexSeed: 7
 
 # Rethinking research computing and data infrastructures for non-human users
 
-AI agents as the new users of HPC and research data services. A researcher and research-support perspective.
+AI agents as the new users of research computing and data services. 
 
 ::presenter::
 **Enrico Glerean**, Staff Scientist, Aalto University · 7 October 2026
@@ -34,49 +35,6 @@ p { font-size: 0.95rem; }
 <!--
 Workshop on updating Finland's reference architectures for scientific computing (TiLa) and research data management (DAHA).
 -->
-
----
-layout: default
-hexes: true
----
-
-###### About me
-
-# Enrico Glerean, DSc.
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 0.75rem; font-size: 0.82rem">
-<div class="card">
-
-### Staff scientist and Data Agent, Aalto University
-
-Background in neuroimaging. I train and support researchers with:
-
-- Personal data: anonymization, secure computing
-- Medical images, clinical trials
-- Research ethics and integrity (AI and new technologies)
-- Statistics, open science
-
-I coordinate **LUMI AI Factory** trainings at Aalto University.
-
-</div>
-<div class="card dark">
-
-### Other affiliations / COI
-
-- **CodeRefinery**: Nordic network teaching computational reproducibility
-- **Finnish Reproducibility Network**: national network raising awareness of reproducibility
-- **Support Pool of Experts, European Data Protection Board**: open training materials on personal data, AI and cybersecurity
-- Member of the **EU AI Act Advisory Forum**
-- Teacher in the **Data Steward training programme**, Tampere University
-
-</div>
-</div>
-
-<style>
-.card ul { margin: 0.4rem 0; }
-.card li { line-height: 1.4; margin: 0.15rem 0; }
-.card h3 { font-size: 1.05rem; }
-</style>
 
 ---
 layout: section
@@ -138,35 +96,50 @@ Today I am talking about the third column, the tool, and about how the tool turn
 
 ---
 layout: default
-hexes: true
 ---
 
-###### The researcher's contradictory AI wish list
+###### The researcher's AI wish list
 
-# What researchers want from the AI tool
+# What do researchers want AI help with?
 
-<div class="wish-grid">
-<div class="card">The newest model, now</div>
-<div class="card">An agent that writes and runs their code</div>
-<div class="card">Confidentiality for unpublished work and personal data</div>
-<div class="card">No waiting for IT to approve a tool</div>
-<div class="card">The big overseas models</div>
-<div class="card">Literature found and summarised for them</div>
-<div class="card">Security they don't have to think about</div>
-<div class="card">Free, or paid by someone else</div>
-<div class="card">Agents with access to their files, email and calendar</div>
-<div class="card">Open or EU models they can run themselves</div>
-<div class="card">Plugs into Zotero, GitHub, Jupyter and Office</div>
-<div class="card">One tool that does everything</div>
+<div class="chart-wrap">
+<BarChart unit="%" :max="70" :items="[
+  { label: 'Project-specific research help', value: 47.54 },
+  { label: 'Literature search and synthesis', value: 65.03 },
+  { label: 'Planning and grant writing', value: 32.24 },
+  { label: 'Research data management, ethics or compliance', value: 22.4 },
+  { label: 'Software coding', value: 56.83 },
+  { label: 'Data analysis', value: 54.64 },
+  { label: 'Lab, fieldwork or instrument workflows', value: 12.02 },
+  { label: 'Manuscript writing/editing', value: 50.82 },
+  { label: 'Citation checking', value: 28.96 },
+  { label: 'Project administration or reporting', value: 24.04 },
+  { label: 'Other', value: 7.65 }
+]" />
 </div>
 
+<div class="chart-source">Share of respondents per task, multiple choices per respondent. Source: Aalto University survey on AI agents, 2026 (N = 183).</div>
+
 <style>
-.wish-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.7rem; margin-top: 1rem; }
-.wish-grid .card { padding: 0.9rem 1.1rem; font-family: var(--asc-font-serif); font-size: 1.05rem; line-height: 1.3; display: flex; align-items: center; }
+.chart-wrap { margin-top: 0.6rem; max-width: 46rem; }
+.chart-source { font-size: 0.6rem; opacity: 0.7; margin-top: 0.6rem; }
 </style>
 
 <!--
 CUT THIS SLIDE FIRST IF SHORT ON TIME.
+
+Data (% of respondents):
+- Literature search and synthesis: 65.03%
+- Software coding: 56.83%
+- Data analysis: 54.64%
+- Manuscript writing/editing: 50.82%
+- Project-specific research help: 47.54%
+- Planning and grant writing: 32.24%
+- Citation checking: 28.96%
+- Project administration or reporting: 24.04%
+- Research data management, ethics or compliance: 22.40%
+- Lab, fieldwork or instrument workflows: 12.02%
+- Other: 7.65%
 -->
 
 ---
@@ -175,7 +148,7 @@ image: /scenarios_summary.png
 class: wide-image fit-image
 ---
 
-###### Software coding as we knew it is dead
+###### Software coding as a case study
 
 # The tool became a user
 
@@ -190,7 +163,6 @@ class: wide-image fit-image
 </div>
 
 <div style="font-size: 0.6rem; opacity: 0.7; margin-top: 1rem">Figure: <a href="https://coderefinery.github.io/coding-with-ai/">CodeRefinery, Coding with AI</a></div>
-
 
 ---
 layout: default
@@ -254,96 +226,136 @@ An AI agent pairs the model with more components so that it can **take real acti
 layout: default
 ---
 
-###### Coding will be a hobby in 2030
+###### Machines as users
 
-# The things we won't be doing by hand in 2030
+# Machines were clients, agents become users
 
-<div class="card-grid stop-grid" style="grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin-top: 1rem">
+<div class="mu-grid">
 <div class="card">
 
-###### Plan
+### Today
 
-Filling in the data management plan, privacy notice, consent forms
+<div class="mu-chips"><span>APIs</span><span>scripts</span><span>workflows</span><span>CI</span><span>schedulers</span></div>
 
-</div>
-<div class="card">
-
-###### Collect
-
-Writing the data access application, APIs, user interfaces
+...already query machines.
 
 </div>
-<div class="card">
+<div class="card dark">
 
-###### Analyse
+### Agents
 
-Writing HPC scripts, watching the queue, debugging and resubmitting
-
-</div>
-<div class="card">
-
-###### Store
-
-Moving data between scratch and archive. Git push.
-
-</div>
-<div class="card">
-
-###### Publish
-
-Writing metadata, README, documentation, web pages
-
-</div>
-<div class="card">
-
-###### Throughout
-
-Emailing the help desk first
+- persistent
+- adaptive
+- retrying
+- parallel
+- capable of spawning more activity
 
 </div>
 </div>
 
-<div class="card dark" style="margin-top: 0.9rem; padding: 0.7rem 1.5rem">
+<div class="card clay mu-claim">
 
-The agent does the planning, the typing, the coding, archiving, publishing. **The researcher should still decide, verify, and approve.** What could possibly go wrong?
+The novelty is not machine access; it is that machines can now **act, adapt, and repeat at a scale humans cannot.**
 
 </div>
 
 <style>
-.stop-grid .card { padding: 0.8rem 1.2rem; }
-.stop-grid h6 { margin: 0 0 0.3rem 0; }
-.stop-grid p { margin: 0; line-height: 1.45; }
+h1 { font-size: 2.15rem !important; }
+.mu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.75rem; }
+.mu-grid .card h3 { margin-bottom: 0.6rem; }
+.mu-grid ul { margin: 0; }
+.mu-grid li { line-height: 1.35; margin: 0.1rem 0; }
+.mu-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+.mu-chips span { background: var(--asc-sunken); border: 1px solid var(--asc-border); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; }
+.mu-claim { margin-top: 1rem; padding: 0.9rem 1.5rem; font-family: var(--asc-font-serif); font-size: 1.3rem; line-height: 1.3; }
 </style>
 
-
 ---
-layout: image-right
-image: /risk-domains.png
-class: fit-image
+layout: default
 ---
 
-###### Risks
+###### Scaling infrastructures
 
-# The risks
+# One researcher ≠ one workload
 
-<div style="font-size: 0.82rem">
+<div class="ow-top">
+<div class="ow-fan">
+  <div class="ow-stage">
+    <div class="ow-count">1</div>
+    <div class="ow-viz"><span class="ow-person" /></div>
+    <div class="ow-cap">researcher</div>
+  </div>
+  <div class="ow-arrow">→</div>
+  <div class="ow-stage">
+    <div class="ow-count">10</div>
+    <div class="ow-viz ow-agents"><span v-for="i in 10" :key="i" class="ow-hex" /></div>
+    <div class="ow-cap">agents</div>
+  </div>
+  <div class="ow-arrow">→</div>
+  <div class="ow-stage">
+    <div class="ow-count">100</div>
+    <div class="ow-viz ow-actions"><span v-for="i in 100" :key="i" class="ow-dot" /></div>
+    <div class="ow-cap">concurrent actions</div>
+  </div>
+  <div class="ow-chips">
+    <span>login-node sessions</span><span>scheduler queries &amp; submissions</span><span>disk quota</span><span>filesystem metadata operations</span><span>catalogue &amp; API requests</span><span>model calls</span>
+  </div>
+</div>
+<div class="ow-assume">
+<div class="card">
 
-**Research integrity**: code that runs but is *plausibly wrong*, silent data loss, undisclosed AI use.
+###### The old assumption
 
-**Confidentiality**: unpublished work, participant data and credentials sent to third-party providers.
+1 account ≈ 1 human ≈ human-speed interaction
 
-**Cybersecurity**: prompt injection, hallucinated or typosquatted packages, insecure generated code, agents with too much access.
+</div>
+<div class="card clay">
+
+###### The 2030 assumption
+
+1 researcher → N agents → N×M concurrent actions
+
+</div>
+</div>
+</div>
+
+<div class="card dark ow-bottom">
+
+A service designed for **5,000 users** faces activity from **500,000 concurrent actions**. 
+
+<b>What will break first?</b>
 
 </div>
 
-<div class="card clay" style="margin-top: 0.75rem; padding: 0.6rem 1.2rem">
+<style>
+.ow-top { display: grid; grid-template-columns: 1.45fr 1fr; gap: 1rem; margin-top: 0.2rem; align-items: stretch; }
+.ow-fan { display: grid; grid-template-columns: auto auto auto auto auto; align-items: center; justify-content: start; column-gap: 0.7rem; }
+.ow-stage { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.ow-count { font-family: var(--asc-font-serif); font-size: 1.6rem; line-height: 1; color: var(--asc-text); }
+.ow-cap { font-size: 0.72rem; color: var(--asc-muted); text-align: center; }
+.ow-arrow { font-size: 1.4rem; color: var(--asc-muted); }
+.ow-viz { height: 5.2rem; display: flex; align-items: center; justify-content: center; }
+.ow-person { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--asc-text); }
+.ow-agents { display: grid; grid-template-columns: repeat(2, 0.85rem); gap: 0.18rem; align-content: center; }
+.ow-hex { width: 0.85rem; height: 0.92rem; background: var(--asc-clay); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.ow-actions { display: grid; grid-template-columns: repeat(10, 0.36rem); gap: 0.16rem; align-content: center; }
+.ow-dot { width: 0.36rem; height: 0.36rem; border-radius: 50%; background: var(--asc-clay); opacity: 0.85; }
+.ow-chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
+.ow-chips span { background: var(--asc-surface); border: 1px solid var(--asc-border); border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.68rem; }
+.ow-assume { display: flex; flex-direction: column; gap: 0.6rem; justify-content: center; }
+.ow-assume .card { padding: 0.55rem 1rem; font-family: var(--asc-font-serif); font-size: 0.95rem; line-height: 1.3; }
+.ow-assume h6 { font-family: var(--asc-font-sans); margin: 0 0 0.25rem 0; }
+.ow-assume .card.clay h6 { color: inherit; }
+.ow-bottom { margin-top: 0.6rem; padding: 0.6rem 1.3rem; }
+.ow-bottom p { font-family: var(--asc-font-serif); font-size: 1.02rem; line-height: 1.3; margin: 0; }
+.ow-breaks { margin-top: 0.35rem; font-size: 0.74rem; line-height: 1.45; opacity: 0.9; }
+.ow-breaks b { color: inherit; margin-right: 0.3rem; }
+</style>
 
-**Validate. Minimize. Contain.**
-
-</div>
-
-<div style="font-size: 0.6rem; opacity: 0.7; margin-top: 0.6rem">Source: <a href="https://coderefinery.github.io/coding-with-ai/security/">CodeRefinery, Coding with AI: Security</a></div>
-
+<!--
+Frame this as a design scenario, not a prediction: if each researcher runs about 10 agents and each agent about 10 concurrent actions,
+a service sized for 5,000 users sees 500,000 concurrent actions.
+-->
 
 ---
 layout: default
@@ -388,8 +400,160 @@ layout: end
 
 ###### Closing question
 
-# What will be left to do for human researchers?
+# How do we design for 2030 when the technology changes every six months?
 
-(and for human research support personnel?)
+<p class="end-discuss">Planning for <b>containment, interoperability, and sovereignty</b> <br>rather than trying to predict the next tool or use case.</p>
 
-Kiitos! Grazie! Thank you!
+<p class="end-thanks">Thank you! – Enrico Glerean</p>
+
+<style>
+h1 { font-size: 2.3rem !important; line-height: 1.15 !important; max-width: 46rem; margin-left: auto; margin-right: auto; }
+.end-discuss { max-width: 42rem; margin: 1rem auto 0; font-size: 0.95rem; line-height: 1.5; }
+.end-thanks { margin-top: 1.4rem; font-size: 1.05rem; }
+</style>
+
+---
+layout: section
+hexText: "BONUS"
+class: title-middle
+---
+
+###### Extra slides
+
+# Bonus materials
+
+---
+layout: default
+---
+
+###### Research work is going to change
+
+# The things we won't be doing by hand in 2030
+
+<div class="card-grid stop-grid" style="grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin-top: 1rem">
+<div class="card">
+
+###### Plan
+
+Filling in the data management plan, privacy notice, consent forms
+
+</div>
+<div class="card">
+
+###### Collect
+
+Writing the data access application, APIs, user interfaces
+
+</div>
+<div class="card">
+
+###### Analyse
+
+Writing HPC scripts, watching the queue, debugging and resubmitting
+
+</div>
+<div class="card">
+
+###### Store
+
+Moving data between scratch and archive. Git push.
+
+</div>
+<div class="card">
+
+###### Publish
+
+Writing metadata, README, documentation, web pages
+
+</div>
+<div class="card">
+
+###### Throughout
+
+Emailing the service desk, reading the docs
+
+</div>
+</div>
+
+<div class="card dark" style="margin-top: 0.9rem; padding: 0.7rem 1.5rem">
+
+The agent does the planning, typing, coding, archiving and publishing. **The researcher should still decide, verify, and approve.** What could possibly go wrong?
+
+</div>
+
+<style>
+.stop-grid .card { padding: 0.8rem 1.2rem; }
+.stop-grid h6 { margin: 0 0 0.3rem 0; }
+.stop-grid p { margin: 0; line-height: 1.45; }
+</style>
+
+---
+layout: image-right
+image: /risk-domains.png
+class: fit-image
+---
+
+###### Risks
+
+# The risks
+
+<div style="font-size: 0.82rem">
+
+**Research integrity**: code that runs but is *plausibly wrong*, silent data loss, undisclosed AI use.
+
+**Confidentiality**: unpublished work, participant data and credentials sent to third-party providers.
+
+**Cybersecurity**: prompt injection, hallucinated or typosquatted packages, insecure generated code, agents with too much access.
+
+</div>
+
+<div class="card clay" style="margin-top: 0.75rem; padding: 0.6rem 1.2rem">
+
+**Validate. Minimize. Contain.**
+
+</div>
+
+<div style="font-size: 0.6rem; opacity: 0.7; margin-top: 0.6rem">Source: <a href="https://coderefinery.github.io/coding-with-ai/security/">CodeRefinery, Coding with AI: Security</a></div>
+
+---
+layout: default
+hexes: true
+---
+
+###### About me
+
+# Enrico Glerean, DSc.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 0.75rem; font-size: 0.82rem">
+<div class="card">
+
+### Staff scientist and Data Agent, Aalto University
+
+Background in neuroimaging. I train and support researchers with:
+
+- Personal data: anonymisation, secure computing
+- Medical images, clinical trials
+- Research ethics and integrity (AI and new technologies)
+- Statistics, open science
+
+I coordinate **LUMI AI Factory** trainings at Aalto University.
+
+</div>
+<div class="card dark">
+
+### Other affiliations / COI
+
+- **CodeRefinery**: Nordic network teaching computational reproducibility
+- **Finnish Reproducibility Network**: national network raising awareness of reproducibility
+- **Support Pool of Experts, European Data Protection Board**: open training materials on personal data, AI and cybersecurity
+- Member of the **EU AI Act Advisory Forum**
+- Teacher in the **Data Steward training programme**, Tampere University
+
+</div>
+</div>
+
+<style>
+.card ul { margin: 0.4rem 0; }
+.card li { line-height: 1.4; margin: 0.15rem 0; }
+.card h3 { font-size: 1.05rem; }
+</style>

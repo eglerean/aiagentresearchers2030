@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import logoBlack from '../assets/aalto-logo-black.png'
 import logoWhite from '../assets/aalto-logo-white.png'
+import { resolveAssetUrl } from '../layoutHelper'
 
 const props = defineProps<{
   white?: boolean
@@ -28,6 +29,19 @@ const dateStr = `${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear(
       </span>
       <span>{{ dateStr }}</span>
       <span class="asc-footer-page">{{ $page }}</span>
+      <!-- Optional download link (icon only), set in the deck headmatter:
+           themeConfig: { download: { url: '/slides.pdf', text: 'Download PDF' } }
+           `text` is the tooltip. Hidden while exporting, so it is not inside the PDF. -->
+      <a
+        v-if="$slidev.themeConfigs?.download && !$slidev.nav.isPrintMode"
+        class="asc-footer-download"
+        :href="resolveAssetUrl($slidev.themeConfigs.download.url)"
+        :title="$slidev.themeConfigs.download.text || 'Download PDF'"
+        :aria-label="$slidev.themeConfigs.download.text || 'Download PDF'"
+        download
+      >
+        <carbon-download class="asc-footer-download-icon" />
+      </a>
     </div>
   </div>
 </template>

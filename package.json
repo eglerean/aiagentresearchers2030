@@ -7,7 +7,8 @@
     "build": "slidev build",
     "export": "slidev export",
     "dev:classic": "VITE_PALETTE=aalto-classic slidev --open",
-    "dev:scicomp-web": "VITE_PALETTE=scicomp-web slidev --open"
+    "dev:scicomp-web": "VITE_PALETTE=scicomp-web slidev --open",
+    "pdf": "slidev export --with-toc --output public/slides.pdf"
   },
   "dependencies": {
     "@slidev/cli": "~0.47.5"

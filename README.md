@@ -25,16 +25,20 @@ This opens http://localhost:3030 in your browser. The page reloads whenever you 
 - **Overview:** press `o` to see all slides at once. Use the arrow keys or space to move between slides.
 - **Stop the server:** press `Ctrl+C` in the terminal.
 
-## Export a PDF
+## PDF of the slides
 
-The fonts load from Google Fonts, so for a talk without internet, export a PDF beforehand:
+The site links to a PDF of the slides ("Download slides (PDF)" in the footer). The PDF is `public/slides.pdf`, committed to the repo, so **regenerate it after changing the slides** and commit it together with them:
 
 ```bash
-npm i --no-save playwright-chromium
-npm run export
+npm i --no-save playwright-chromium   # once; the headless browser Slidev uses for export
+npm run pdf                            # writes public/slides.pdf
 ```
 
-This writes `slides-export.pdf`.
+The PDF has a clickable table of contents, and its metadata records the provenance: Author "Enrico Glerean", and the subject and keywords include https://eglerean.github.io/ and the repo link. These come from `author`, `info` and `keywords` in the `slides.md` headmatter. Every slide except the title also shows "Enrico Glerean · CC BY 4.0 · eglerean.github.io" in the footer. The download link itself does not appear inside the PDF.
+
+The fonts load from Google Fonts, so export while online. The PDF then works offline, which makes it a good backup for the talk.
+
+The footer link is set in the headmatter (`themeConfig: download:`); see the theme's README.
 
 ## Colour palettes
 

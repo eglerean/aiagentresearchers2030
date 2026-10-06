@@ -279,6 +279,19 @@ themeConfig:
 
 The `url` is optional; it is shown without `https://` and is clickable.
 
+## Footer download link
+
+To put a download icon in the footer (right end, after the page number), e.g. for a PDF of the slides kept in `public/`:
+
+```yaml
+themeConfig:
+  download:
+    url: /slides.pdf
+    text: Download PDF   # tooltip on hover
+```
+
+A `url` starting with `/` gets the base path added, so it works on GitHub Pages too. The icon is hidden while exporting, so it does not appear inside the PDF itself. It sits on the right because Slidev's navigation controls appear in the bottom-left corner.
+
 ## `<CcBy>` component
 
 The official Creative Commons "CC BY" icons, inline at the size of the surrounding text:

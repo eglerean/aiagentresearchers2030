@@ -5,7 +5,16 @@ themeConfig:
   credit:
     text: Enrico Glerean · CC BY 4.0
     url: https://eglerean.github.io/
+  download:
+    url: /slides.pdf
+    text: Download PDF
 title: Rethinking research computing and data infrastructures for non-human users
+author: Enrico Glerean
+info: |
+  Slides by Enrico Glerean (https://eglerean.github.io/), CC BY 4.0.
+  Flash talk, TiLa · DAHA workshop, 7 October 2026.
+  Source: https://github.com/eglerean/aiagentresearchers2030
+keywords: AI agents, research computing, HPC, research data management, Enrico Glerean, https://eglerean.github.io/
 layout: cover
 class: no-footer
 hexText: "AI\nAGENTS"

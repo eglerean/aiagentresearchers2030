@@ -306,6 +306,30 @@
   pointer-events: auto;
 }
 
+/* Icon-only download link at the right end of the footer */
+.slidev-layout .asc-footer .asc-footer-download {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  pointer-events: auto;
+  text-decoration: none;
+  border: none;
+}
+
+.slidev-layout .asc-footer .asc-footer-download:hover {
+  color: var(--asc-link);
+}
+
+.asc-footer-download-icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* The full PDF/PNG export renders slides on the /print page: no download link there */
+.print-slide-container .asc-footer-download {
+  display: none !important;
+}
+
 .asc-footer-page {
   min-width: 1.6rem;
   text-align: center;
